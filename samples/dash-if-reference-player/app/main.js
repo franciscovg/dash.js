@@ -22,7 +22,7 @@ angular.module('DashContributorsService', ['ngResource']).factory('contributors'
 app.controller('DashController', function($scope, sources, contributors) {
 
 
-    $scope.selectedItem = {url:"http://dash.edgesuite.net/akamai/bbb_30fps/bbb_30fps.mpd"};
+    $scope.selectedItem = {url:"https://cdn.varnish-software.com/media/1/MultiResMPEG2.mpd"};
 
     sources.query(function (data) {
         $scope.availableStreams = data.items;
