@@ -180,12 +180,17 @@ app.controller('DashController', function($scope, sources, contributors) {
         $scope.player.attachTTMLRenderingDiv($("#video-caption")[0]);
     }
 
+    // Work around to allow DNS update
+    $scope.player.setFragmentLoaderRetryAttempts(10000);
+
     $scope.controlbar = new ControlBar($scope.player);
     $scope.controlbar.initialize();
     $scope.controlbar.disable();
     $scope.version = $scope.player.getVersion();
 
-    $scope.player.on(dashjs.MediaPlayer.events.ERROR, function (e) {}, $scope);
+    $scope.player.on(dashjs.MediaPlayer.events.ERROR, function (e) {
+	console.log(e);
+    }, $scope);
 
     $scope.player.on(dashjs.MediaPlayer.events.QUALITY_CHANGE_REQUESTED, function (e) {
         $scope[e.mediaType + "Index"] = e.oldQuality + 1 ;
