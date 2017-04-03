@@ -36,6 +36,7 @@ a:hover {
 .title-header span {
     font-size: 24px;
     line-height: 50px;
+    float: right;
 }
 
 .top-buttons {
@@ -46,6 +47,7 @@ a:hover {
 
 .branding {
     float: left;
+    margin-top: 7px;
 }
 
 .form-control {

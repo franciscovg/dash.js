@@ -24,6 +24,10 @@ app.controller('DashController', function($scope, sources, contributors) {
 
     $scope.selectedItem = {url:"https://cdn.varnish-software.com/media/1/MultiResMPEG2.mpd"};
 
+    if(window.location.hostname) {
+        $scope.selectedItem.url = "https://" + window.location.hostname + "/media/1/MultiResMPEG2.mpd";
+    }
+
     sources.query(function (data) {
         $scope.availableStreams = data.items;
     });
